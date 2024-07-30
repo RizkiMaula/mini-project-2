@@ -1,6 +1,6 @@
 const Button = (props) => {
-  const { text = 'dari button', style = 'bg-red-500 w-full p-3 text-white' } = props;
-  return <button className={style}>{text}</button>;
+  const { text = '....', bgColor = 'bg-red-500' } = props;
+  return <button className={`${bgColor} rounded-xl w-full p-3 text-white`}>{text}</button>;
 };
 
 export default Button;
