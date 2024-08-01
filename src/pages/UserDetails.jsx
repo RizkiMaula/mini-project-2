@@ -23,7 +23,7 @@ const UserDetails = () => {
     getUser();
   }, []);
 
-  // console.log('user', user); //buat cek users
+  console.log('user', user); //buat cek users
 
   // 3. destructuring object yang dari api
   const { id, first_name, last_name, email, avatar } = user;
@@ -33,14 +33,20 @@ const UserDetails = () => {
   // 4. tampilin data user (render*) berdasarkan id
   return (
     <OuterContainer>
-      <h2>
-        {user.first_name} {user.last_name}
-      </h2>
-      <p>{user.email}</p>
-      <img
-        src={user.avatar}
-        alt="user avatar"
-      />
+      <div className="z-10 flex items-center justify-center gap-3 p-4 bg-white border-black border-3 rounded-xl ">
+        <img
+          src={avatar}
+          alt="avatar"
+          className="w-[10rem] h-[10rem] rounded-md"
+        />
+        <div className="flex flex-col">
+          <h1>
+            Name: {first_name} {last_name}{' '}
+          </h1>
+          <hr />
+          <h1>Email: {email}</h1>
+        </div>
+      </div>
       <Link to={'/users'}>Back To Users Menu</Link>
     </OuterContainer>
   );
