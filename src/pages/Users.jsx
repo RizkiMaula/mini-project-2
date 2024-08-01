@@ -9,7 +9,7 @@ const User = () => {
     axios
       .get('https://reqres.in/api/users?page=2')
       .then((res) => {
-        console.log(res.data.data);
+        // console.log(res.data.data); //buat cek data dari api
         setUsers(res.data.data);
       })
       .catch((err) => {
@@ -21,7 +21,7 @@ const User = () => {
     getUsers();
   }, []);
 
-  console.log('users', users);
+  //   console.log('users', users); //buat cek users
   return (
     <div>
       <h1>User</h1>
