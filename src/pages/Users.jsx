@@ -26,22 +26,22 @@ const User = () => {
     <div>
       <h1>User</h1>
       {/* nanti di sini ada api terus pake pagination */}
-      <div className="flex justify-center gap-4 border-2 border-black">
+      <div className="grid grid-cols-3 gap-4">
         {users.map((user) => (
           <div
             key={user.id}
-            className="flex flex-col items-center p-3 text-center border-4 border-red-500"
+            className="flex flex-col items-center gap-3 p-3 text-center bg-red-500 border-4"
           >
-            <h3>{user.first_name}</h3>
-            <p>{user.email}</p>
+            <h3 className="text-xl">{user.first_name}</h3>
             <img
+              className="w-[10rem] h-[10rem] rounded-full"
               src={user.avatar}
               alt="gambar avatar"
             />
             <div>
               <Link
                 to={`/users/${user.id}`}
-                className="text-blue-500 hover:text-blue-800"
+                className="text-blue-800 hover:text-blue-700"
               >
                 Details
               </Link>

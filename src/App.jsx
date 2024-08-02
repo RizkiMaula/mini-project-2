@@ -1,6 +1,6 @@
 import Login from './pages/Login';
 import Home from './pages/Home';
-import { Routes, Route, useParams } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import UserDetails from './pages/UserDetails';
 import Users from './pages/Users';
 import Register from './pages/Register';
@@ -9,7 +9,6 @@ import SharedLayout from './pages/Sharedlayout';
 import About from './pages/About';
 
 const App = () => {
-  let { userId } = useParams();
   return (
     <Routes>
       <Route
