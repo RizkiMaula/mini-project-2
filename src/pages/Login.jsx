@@ -10,7 +10,6 @@ import axios from 'axios';
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [success, setSuccess] = useState('');
   const [failed, setFailed] = useState('');
 
   useEffect(() => {}, []);

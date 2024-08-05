@@ -2,7 +2,7 @@ import InnerContainer from '../components/Fragments/InnerContainer';
 import OuterContainer from '../components/Fragments/OuterContainer';
 import InputText from '../components/Fragments/InputText';
 import Button from '../components/Elements/Button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -10,8 +10,11 @@ const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [failed, setFailed] = useState('');
+  const [success, setSuccess] = useState('');
 
   useEffect(() => {}, []);
+
+  const navigate = useNavigate();
 
   const handleUsername = (e) => {
     // console.log(e.target.value);
@@ -23,8 +26,6 @@ const Register = () => {
   };
 
   const handleRegister = () => {
-    // console.log(`username: ${username}, password: ${password}`);
-
     const payload = {
       username: username,
       password: password,
@@ -34,10 +35,14 @@ const Register = () => {
       .post('https://reqres.in/api/register', payload)
       .then((res) => {
         console.log(res);
+        setSuccess('Register Success, You will be redirected to login page in 5 seconds...');
+        setTimeout(() => {
+          navigate('/login');
+        }, 5000);
       })
       .catch((err) => {
         console.log(err.response);
-        // setFailed(err.response.data.error);
+        setFailed(err.response.data.error);
       });
   };
 
@@ -69,6 +74,8 @@ const Register = () => {
           bgColor="bg-blue-500"
           text="Register"
         />
+        {failed ? <p className="text-red-500">{failed}</p> : null}
+        {success ? <p className="text-white">{success}</p> : null}
       </InnerContainer>
       <p>
         Already have an account?{' '}
