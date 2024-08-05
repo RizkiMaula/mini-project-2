@@ -12,8 +12,6 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [failed, setFailed] = useState('');
 
-  useEffect(() => {}, []);
-
   const navigate = useNavigate();
 
   const handleUsername = (e) => {
@@ -45,6 +43,12 @@ const Login = () => {
         setFailed(err.response.data.error); // simpan pesan error ke state
       });
   };
+
+  useEffect(() => {
+    if (localStorage.getItem('access_token') !== null) {
+      navigate('/');
+    }
+  }, []);
 
   return (
     <OuterContainer>

@@ -12,8 +12,6 @@ const Register = () => {
   const [failed, setFailed] = useState('');
   const [success, setSuccess] = useState('');
 
-  useEffect(() => {}, []);
-
   const navigate = useNavigate();
 
   const handleUsername = (e) => {
@@ -45,6 +43,12 @@ const Register = () => {
         setFailed(err.response.data.error);
       });
   };
+
+  useEffect(() => {
+    if (localStorage.getItem('access_token') !== null) {
+      navigate('/');
+    }
+  }, []);
 
   return (
     <OuterContainer>
