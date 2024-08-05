@@ -9,3 +9,5 @@ const NotFound = () => {
 };
 
 export default NotFound;
+
+// dari style
