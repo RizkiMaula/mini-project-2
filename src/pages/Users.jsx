@@ -23,23 +23,26 @@ const User = () => {
 
   //   console.log('users', users); //buat cek users
   return (
-    <div className='bg-blue-500 h-screen flex flex-col justify-center'>
-      <div className='flex flex-col justify-center items-center'>
+    <div className='h-screen flex flex-col justify-center'>
+      <div className='gap flex flex-col justify-center items-center h-full border-4 border-black'>
+        <div>
+
       <h1>User</h1>
-      <div className='flex items-center justify-around gap-3 p-3 text-center border-4 border-black w-[50%] text-gray-500'>
+        </div>
+      <div className='flex items-center justify-around gap-3 py-3 text-center border-x-4 border-black w-[75%] text-gray-500'>
         <h2>Pic</h2>
         <h2>Name</h2>
         <h2>Action</h2>
       </div>
       {/* nanti di sini ada api terus pake pagination */}
-      <div className="flex flex-col border-3 border-black bg-blue-500 w-[50%]">
+      <div className="flex flex-col border-7 border-black w-[75%] ">
         {users.map((user) => (
           <div
             key={user.id}
-            className="flex items-center justify-around gap-3 p-3 text-center bg-red-500 border-4 "
+            className="flex items-center justify-around gap-3 py-3 text-center border-x-4 border-black "
           >
             <img
-              className="w-[2.5rem] h-[2.5rem] rounded"
+              className="w-[2.9rem] h-[2.9rem] rounded"
               src={user.avatar}
               alt="gambar avatar"
             />
