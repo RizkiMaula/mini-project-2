@@ -23,25 +23,31 @@ const User = () => {
 
   //   console.log('users', users); //buat cek users
   return (
-    <div>
+    <div className='bg-blue-500 h-screen flex flex-col justify-center'>
+      <div className='flex flex-col justify-center items-center'>
       <h1>User</h1>
+      <div className='flex items-center justify-around gap-3 p-3 text-center border-4 border-black w-[50%] text-gray-500'>
+        <h2>Pic</h2>
+        <h2>Name</h2>
+        <h2>Action</h2>
+      </div>
       {/* nanti di sini ada api terus pake pagination */}
-      <div className="flex justify-center gap-4 border-2 border-black">
+      <div className="flex flex-col border-3 border-black bg-blue-500 w-[50%]">
         {users.map((user) => (
           <div
             key={user.id}
-            className="flex flex-col items-center p-3 text-center border-4 border-red-500"
+            className="flex items-center justify-around gap-3 p-3 text-center bg-red-500 border-4 "
           >
-            <h3>{user.first_name}</h3>
-            <p>{user.email}</p>
             <img
+              className="w-[2.5rem] h-[2.5rem] rounded"
               src={user.avatar}
               alt="gambar avatar"
             />
+            <h3 className="text-xl">{user.first_name}</h3>
             <div>
               <Link
                 to={`/users/${user.id}`}
-                className="text-blue-500 hover:text-blue-800"
+                className="text-blue-800 hover:text-blue-700"
               >
                 Details
               </Link>
@@ -50,6 +56,7 @@ const User = () => {
         ))}
       </div>
       <Outlet />
+      </div>
     </div>
   );
 };
