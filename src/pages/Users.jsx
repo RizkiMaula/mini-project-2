@@ -23,21 +23,30 @@ const User = () => {
 
   //   console.log('users', users); //buat cek users
   return (
-    <div>
+    <div className='h-screen flex flex-col justify-center'>
+      <div className='gap flex flex-col justify-center items-center h-full border-4 border-black'>
+        <div>
+
       <h1>User</h1>
+        </div>
+      <div className='flex items-center justify-around gap-3 py-3 text-center border-x-4 border-black w-[75%] text-gray-500'>
+        <h2>Pic</h2>
+        <h2>Name</h2>
+        <h2>Action</h2>
+      </div>
       {/* nanti di sini ada api terus pake pagination */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="flex flex-col border-7 border-black w-[75%] ">
         {users.map((user) => (
           <div
             key={user.id}
-            className="flex flex-col items-center gap-3 p-3 text-center bg-red-500 border-4"
+            className="flex items-center justify-around gap-3 py-3 text-center border-x-4 border-black "
           >
-            <h3 className="text-xl">{user.first_name}</h3>
             <img
-              className="w-[10rem] h-[10rem] rounded-full"
+              className="w-[2.9rem] h-[2.9rem] rounded"
               src={user.avatar}
               alt="gambar avatar"
             />
+            <h3 className="text-xl">{user.first_name}</h3>
             <div>
               <Link
                 to={`/users/${user.id}`}
@@ -50,8 +59,11 @@ const User = () => {
         ))}
       </div>
       <Outlet />
+      </div>
     </div>
   );
 };
 
 export default User;
+
+// eve.holt@reqres.in
