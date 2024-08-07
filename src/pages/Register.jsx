@@ -57,14 +57,14 @@ const Register = () => {
         <hr className="w-full" />
         <form
           action=""
-          method="get"
-          className="flex flex-col gap-3"
+          method="post"
+          className="flex flex-col gap-3 w-full"
         >
           <InputText
             event={handleUsername}
             label="Username"
             textType="email"
-            textPlaceholder="example@mail.com"
+            textPlaceholder="Put your email here"
           />
           <InputText
             event={handlePassword}

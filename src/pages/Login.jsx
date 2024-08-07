@@ -60,14 +60,14 @@ const Login = () => {
         <hr className="w-full" />
         <form
           action=""
-          method="get"
-          className="flex flex-col gap-3"
+          method="post"
+          className="flex flex-col gap-3 w-full"
         >
           <InputText
             event={handleUsername}
             label="Username"
             textType="text"
-            textPlaceholder="example@mail.com"
+            textPlaceholder="Username"
           />
           <InputText
             event={handlePassword}

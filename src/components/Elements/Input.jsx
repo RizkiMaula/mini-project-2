@@ -1,5 +1,5 @@
 const Input = (props) => {
-  const { type = 'text', placeholder = 'dari input', style = 'w-full p-1 rounded', event } = props;
+  const { type = 'text', placeholder = 'dari input', style = `w-full p-1 rounded`, event } = props;
   return (
     <input
       onChange={event}
