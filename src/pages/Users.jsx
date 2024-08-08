@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import InputText from '../components/Fragments/InputText';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUpRightFromSquare, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 const User = () => {
   const [users, setUsers] = useState([]);
@@ -28,7 +28,7 @@ const User = () => {
   //   console.log('users', users); //buat cek users
   return (
     <div className="flex flex-col justify-center h-screen">
-      <div className="flex flex-col gap-3 items-center justify-center border-4 border-black w-full h-[43rem] px-3">
+      <div className="flex flex-col gap-3 items-center justify-center w-full h-[43rem] px-3">
         <div className="flex items-center justify-between w-full">
           <h1 className="text-3xl">User List</h1>
           <div className="flex items-center w-[30rem] justify-between ">
@@ -45,7 +45,7 @@ const User = () => {
             </div>
             <label
               htmlFor="sort"
-              className="text-sm"
+              className="text-[0.9rem]"
             >
               Sorted by:
             </label>
@@ -73,7 +73,7 @@ const User = () => {
               .filter((user) => {
                 return search.toLowerCase() === '' ? user : user.first_name.toLowerCase().includes(search.toLowerCase()); // filter berdasarkan search, jika search kosong, tampilkan semua. jika user bernilai true, maka tampilkan nama yang diketik dan di dalamnya (includes) search
               })
-              .sort((a, b) => (a.first_name > b.first_name ? 1 : -1))
+              .sort((a, b) => (a.first_name > b.first_name ? 1 : -1)) // udah sort berdasarkan asc dari first_name tapi maunya lewat select option
               .map((user) => (
                 <tr key={user.id}>
                   <td className="border">
@@ -88,7 +88,12 @@ const User = () => {
                   <td className="border">{user.first_name}</td>
                   <td className="border">{user.email}</td>
                   <td className="border">
-                    <Link to={`/users/${user.id}`}>View</Link>
+                    <Link
+                      to={`/users/${user.id}`}
+                      className="text-blue-600 hover:text-blue-800"
+                    >
+                      View Details <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                    </Link>
                   </td>
                 </tr>
               ))}

@@ -37,10 +37,12 @@ const Register = () => {
         setTimeout(() => {
           navigate('/login');
         }, 5000);
+        setFailed('');
       })
       .catch((err) => {
         console.log(err.response);
         setFailed(err.response.data.error);
+        setSuccess('');
       });
   };
 
@@ -52,13 +54,13 @@ const Register = () => {
 
   return (
     <OuterContainer>
-      <InnerContainer>
+      <InnerContainer width="w-[23rem] h-[23rem]">
         <h1 className="text-3xl font-bold text-center text-white">Register</h1>
         <hr className="w-full" />
         <form
           action=""
           method="post"
-          className="flex flex-col gap-3 w-full"
+          className="flex flex-col w-full gap-3"
         >
           <InputText
             event={handleUsername}

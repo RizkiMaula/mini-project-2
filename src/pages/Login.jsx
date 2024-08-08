@@ -52,7 +52,7 @@ const Login = () => {
 
   return (
     <OuterContainer>
-      <InnerContainer>
+      <InnerContainer width="w-[20rem] h-[20rem]">
         <Title
           text="Login"
           classname="text-xl font-bold text-center text-white"
@@ -61,7 +61,7 @@ const Login = () => {
         <form
           action=""
           method="post"
-          className="flex flex-col gap-3 w-full"
+          className="flex flex-col w-full gap-3"
         >
           <InputText
             event={handleUsername}
