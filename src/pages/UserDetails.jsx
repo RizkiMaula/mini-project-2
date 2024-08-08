@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import OuterContainer from '../components/Fragments/OuterContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { faInstagram, faLinkedin, faLinkedinIn, faTwitter, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faInstagram, faLinkedinIn, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 
 const UserDetails = () => {
   // 1. deklarasi state

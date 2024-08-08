@@ -25,7 +25,7 @@ const User = () => {
     getUsers();
   }, []);
 
-  //   console.log('users', users); //buat cek users
+  // console.log('users', users); //buat cek users
   return (
     <div className="flex flex-col justify-center h-screen">
       <div className="flex flex-col gap-3 items-center justify-center w-full h-[43rem] px-3">
