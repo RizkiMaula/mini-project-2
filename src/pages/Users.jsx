@@ -8,6 +8,7 @@ import { faArrowUpRightFromSquare, faMagnifyingGlass } from '@fortawesome/free-s
 const User = () => {
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState('');
+  const [sort, setSort] = useState('');
 
   const getUsers = () => {
     axios
@@ -25,7 +26,17 @@ const User = () => {
     getUsers();
   }, []);
 
+  const option = [
+    { label: 'Ascending', value: 1 },
+    { label: 'Descending', value: 2 },
+  ];
+
+  const handleSort = (e) => {
+    setSort(e.target.value);
+  };
+
   // console.log('users', users); //buat cek users
+
   return (
     <div className="flex flex-col justify-center h-screen">
       <div className="flex flex-col gap-3 items-center justify-center w-full h-[43rem] px-3">
@@ -53,13 +64,20 @@ const User = () => {
               name="sort"
               id="sort"
               className="border-2 border-black w-[10rem] p-1 rounded"
+              onChange={handleSort}
             >
-              <option value="asc">Ascending</option>
-              <option value="desc">Descending</option>
+              {option.map((opt) => (
+                <option
+                  key={opt.value}
+                  value={opt.value}
+                >
+                  {opt.label}
+                </option>
+              ))}
             </select>
           </div>
         </div>
-        <table className="w-full h-[23rem] text-center border border-spacing-2 border-collapse border-slate-500 ">
+        <table className="w-full h-[3rem] text-center border border-spacing-2 border-collapse border-slate-500 ">
           <thead>
             <tr className="border border-black">
               <th className="border bg-slate-600">Pic</th>
@@ -73,13 +91,20 @@ const User = () => {
               .filter((user) => {
                 return search.toLowerCase() === '' ? user : user.first_name.toLowerCase().includes(search.toLowerCase()); // filter berdasarkan search, jika search kosong, tampilkan semua. jika user bernilai true, maka tampilkan nama yang diketik dan di dalamnya (includes) search
               })
-              .sort((a, b) => (a.first_name > b.first_name ? 1 : -1)) // udah sort berdasarkan asc dari first_name tapi maunya lewat select option
+              // .sort((a, b) => (a.first_name > b.first_name ? 1 : -1)) // udah sort berdasarkan asc dari first_name tapi maunya lewat select option
+              .sort((a, b) => {
+                if (sort === '1') {
+                  return a.first_name > b.first_name ? 1 : -1;
+                } else if (sort === '2') {
+                  return a.first_name < b.first_name ? 1 : -1;
+                }
+              })
               .map((user) => (
                 <tr key={user.id}>
                   <td className="border">
                     <div className="flex items-center justify-center">
                       <img
-                        className="w-20 h-20 rounded-xl "
+                        className="lg:w-20 lg:h-20 md:w-16 md:h-16 sm:w-12 sm:h-12 rounded-xl"
                         src={user.avatar}
                         alt={user.first_name}
                       />
