@@ -77,13 +77,13 @@ const User = () => {
             </select>
           </div>
         </div>
-        <table className="w-full h-[3rem] text-center border border-spacing-2 border-collapse border-slate-500 ">
+        <table className="w-full h-[3rem] text-center  border-collapse border-slate-500 ">
           <thead>
-            <tr className="border border-black">
-              <th className="border bg-slate-600">Pic</th>
-              <th className="border bg-slate-600">Name</th>
-              <th className="border bg-slate-600">Email</th>
-              <th className="border bg-slate-600">Action</th>
+            <tr className="border-black border-y-2">
+              <th className="border-y-2 bg-slate-600">Pic</th>
+              <th className="border-y-2 bg-slate-600">Name</th>
+              <th className="border-y-2 bg-slate-600">Email</th>
+              <th className="border-y-2 bg-slate-600">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -101,7 +101,7 @@ const User = () => {
               })
               .map((user) => (
                 <tr key={user.id}>
-                  <td className="border">
+                  <td className="border-y-2">
                     <div className="flex items-center justify-center">
                       <img
                         className="lg:w-20 lg:h-20 md:w-16 md:h-16 sm:w-12 sm:h-12 rounded-xl"
@@ -110,9 +110,9 @@ const User = () => {
                       />
                     </div>
                   </td>
-                  <td className="border">{user.first_name}</td>
-                  <td className="border">{user.email}</td>
-                  <td className="border">
+                  <td className="border-y-2">{user.first_name}</td>
+                  <td className="border-y-2">{user.email}</td>
+                  <td className="border-y-2">
                     <Link
                       to={`/users/${user.id}`}
                       className="text-blue-600 hover:text-blue-800"
