@@ -3,19 +3,29 @@ import { useState, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import InputText from '../components/Fragments/InputText';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUpRightFromSquare, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUpRightFromSquare, faLeftLong, faMagnifyingGlass, faRightLong } from '@fortawesome/free-solid-svg-icons';
 
 const User = () => {
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState('');
+  const [page, setPage] = useState({
+    currentPage: 2,
+    nextPage: 0,
+    previousPage: 0,
+  });
 
   const getUsers = () => {
     axios
-      .get('https://reqres.in/api/users')
+      .get(`https://reqres.in/api/users?per_page=5&page=${page.currentPage}`)
       .then((res) => {
         // console.log(res.data.data); //buat cek data dari api
         setUsers(res.data.data);
+        setPage({
+          currentPage: res.data.page,
+          nextPage: res.data.page + 1,
+          previousPage: res.data.page - 1,
+        });
       })
       .catch((err) => {
         console.log(err.response);
@@ -124,6 +134,14 @@ const User = () => {
               ))}
           </tbody>
         </table>
+        <div className="flex items-center justify-between w-full">
+          <button>
+            <FontAwesomeIcon icon={faLeftLong} /> Previous
+          </button>
+          <button>
+            Next <FontAwesomeIcon icon={faRightLong} />
+          </button>
+        </div>
         <Outlet />
       </div>
     </div>
