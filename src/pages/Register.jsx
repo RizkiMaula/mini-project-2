@@ -5,6 +5,8 @@ import Button from '../components/Elements/Button';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Auth from '../components/Fragments/Auth';
+import register from '../components/images/register.jpg';
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -32,11 +34,10 @@ const Register = () => {
     axios
       .post('https://reqres.in/api/register', payload)
       .then((res) => {
-        console.log(res);
-        setSuccess('Register Success, You will be redirected to login page in 5 seconds...');
+        setSuccess('Register Success, You will be redirected to login page in 3 seconds...');
         setTimeout(() => {
           navigate('/login');
-        }, 5000);
+        }, 3000);
         setFailed('');
       })
       .catch((err) => {
@@ -53,46 +54,34 @@ const Register = () => {
   }, []);
 
   return (
-    <OuterContainer>
-      <InnerContainer width="w-[23rem] h-[23rem]">
-        <h1 className="text-3xl font-bold text-center text-white">Register</h1>
-        <hr className="w-full" />
-        <form
-          action=""
-          method="post"
-          className="flex flex-col w-full gap-3"
-        >
-          <InputText
-            event={handleUsername}
-            label="Username"
-            textType="email"
-            textPlaceholder="Put your email here"
-          />
-          <InputText
-            event={handlePassword}
-            label="Password"
-            textType="Password"
-            textPlaceholder="Password"
-          />
-        </form>
-        <Button
-          event={handleRegister}
-          bgColor="bg-blue-500"
-          text="Register"
+    <div className="flex items-center justify-center h-screen gap-10 border-4 border-black">
+      <div>
+        <img
+          src={register}
+          alt="login"
+          className="w-[32rem] h-[37.563rem] object-cover"
         />
-        {failed ? <p className="text-red-500">{failed}</p> : null}
-        {success ? <p className="text-white">{success}</p> : null}
-      </InnerContainer>
-      <p>
-        Already have an account?{' '}
-        <Link
-          to="/login"
-          className="text-blue-500 hover:text-blue-800"
-        >
-          Login
-        </Link>
-      </p>
-    </OuterContainer>
+      </div>
+      <Auth
+        text="Register"
+        error={failed ? <p className="text-red-500">{failed}</p> : null}
+        color="bg-blue-500"
+        direct="/login"
+        typeUser="email"
+        typePass="password"
+        placeholder="Email"
+        style="w-40 h-8 px-1 "
+        classname="w-40 h-8 px-1 "
+        textCheck="I agree with the term and condition"
+        textDirect="Login here"
+        alternate="Or Register With"
+        ask="Already have an account?"
+        eventInput={handleUsername}
+        eventPass={handlePassword}
+        eventButton={handleRegister}
+      />
+      {success ? alert(success) : null}
+    </div>
   );
 };
 

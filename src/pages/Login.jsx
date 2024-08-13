@@ -1,11 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
-import InputText from '../components/Fragments/InputText';
-import Title from '../components/Elements/Title';
-import Button from '../components/Elements/Button';
-import InnerContainer from '../components/Fragments/InnerContainer';
-import OuterContainer from '../components/Fragments/OuterContainer';
+import Auth from '../components/Fragments/Auth';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import login from '../components/images/login.jpg';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -51,48 +48,33 @@ const Login = () => {
   }, []);
 
   return (
-    <OuterContainer>
-      <InnerContainer width="w-[20rem] h-[20rem]">
-        <Title
-          text="Login"
-          classname="text-xl font-bold text-center text-white"
+    <div className="flex items-center justify-center h-screen gap-10 border-4 border-black">
+      <Auth
+        text="Login"
+        error={failed ? failed : ''}
+        color="bg-blue-500"
+        direct="/register"
+        typeUser="email"
+        typePass="password"
+        placeholder="Email"
+        style="w-40 h-8 px-1 "
+        classname="w-40 h-8 px-1 "
+        textCheck="Remember me"
+        textDirect="Register here"
+        alternate="Or Login With"
+        ask="haven't an account?"
+        eventInput={handleUsername}
+        eventPass={handlePassword}
+        eventButton={handleLogin}
+      />
+      <div>
+        <img
+          src={login}
+          alt="login"
+          className="w-[32rem] h-[37.563rem] object-cover"
         />
-        <hr className="w-full" />
-        <form
-          action=""
-          method="post"
-          className="flex flex-col w-full gap-3"
-        >
-          <InputText
-            event={handleUsername}
-            label="Username"
-            textType="text"
-            textPlaceholder="Username"
-          />
-          <InputText
-            event={handlePassword}
-            label="Password"
-            textType="Password"
-            textPlaceholder="Password"
-          />
-        </form>
-        <Button
-          event={handleLogin}
-          text="Login"
-          bgColor="bg-blue-500"
-        />
-        {failed ? <p className="text-red-500">{failed}</p> : null} {/* kalo ada pesan error, tampilkan pesan error */}
-      </InnerContainer>
-      <p>
-        Don't have an account?{' '}
-        <Link
-          to="/register"
-          className="text-blue-500 hover:text-blue-800"
-        >
-          Register
-        </Link>
-      </p>
-    </OuterContainer>
+      </div>
+    </div>
   );
 };
 
