@@ -9,23 +9,13 @@ const User = () => {
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState('');
-  const [page, setPage] = useState({
-    currentPage: 2,
-    nextPage: 0,
-    previousPage: 0,
-  });
 
   const getUsers = () => {
     axios
-      .get(`https://reqres.in/api/users?per_page=5&page=${page.currentPage}`)
+      .get(`https://reqres.in/api/users`)
       .then((res) => {
         console.log(res); //buat cek data dari api
         setUsers(res.data.data);
-        setPage({
-          currentPage: res.data.page,
-          nextPage: res.data.page + 1,
-          previousPage: res.data.page - 1,
-        });
       })
       .catch((err) => {
         console.log(err.response);
