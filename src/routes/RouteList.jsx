@@ -1,7 +1,5 @@
 import NotFound from '../pages/404';
 import About from '../pages/About';
-import CobaLogin from '../pages/CobaLogin';
-import CobaRegister from '../pages/CobaRegister';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
@@ -17,14 +15,6 @@ export const RouteList = [
   {
     path: '/register',
     element: <Register />,
-  },
-  {
-    path: '/coba-login',
-    element: <CobaLogin />,
-  },
-  {
-    path: '/coba-regis',
-    element: <CobaRegister />,
   },
   {
     path: '/',

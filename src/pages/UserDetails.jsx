@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import OuterContainer from '../components/Fragments/OuterContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faLinkedinIn, faXTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -35,7 +34,7 @@ const UserDetails = () => {
 
   // 4. tampilin data user (render*) berdasarkan id
   return (
-    <OuterContainer>
+    <div>
       <div className="z-10 flex flex-col items-center justify-center gap-3 p-4 bg-white border-black border-3 rounded-xl w-[30rem] ">
         <img
           src={avatar}
@@ -89,7 +88,7 @@ const UserDetails = () => {
         {' '}
         <FontAwesomeIcon icon={faArrowLeft} /> Back To Users Menu
       </Link>
-    </OuterContainer>
+    </div>
   );
 };
 
