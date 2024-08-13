@@ -9,13 +9,23 @@ const User = () => {
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState('');
+  const [pagination, setPagination] = useState({
+    currentPage: 1,
+    nextPage: 0,
+    previousPage: 0,
+  });
 
   const getUsers = () => {
     axios
-      .get(`https://reqres.in/api/users`)
+      .get(`https://reqres.in/api/users?per_page=5&page=${pagination.currentPage}`)
       .then((res) => {
-        console.log(res); //buat cek data dari api
+        // console.log(res.data.page - 1); //buat cek data dari api
         setUsers(res.data.data);
+        setPagination({
+          currentPage: res.data.page,
+          nextPage: res.data.page + 1,
+          previousPage: res.data.page - 1,
+        });
       })
       .catch((err) => {
         console.log(err.response);
@@ -25,6 +35,22 @@ const User = () => {
   useEffect(() => {
     getUsers();
   }, []);
+
+  const handleNext = () => {
+    console.log(pagination.currentPage);
+
+    setPagination({ ...pagination, currentPage: pagination.currentPage + 1 });
+  };
+
+  useEffect(() => {
+    getUsers();
+  }, [pagination.currentPage]);
+
+  const handlePrevious = () => {
+    console.log(pagination.currentPage);
+
+    setPagination({ ...pagination, currentPage: pagination.currentPage - 1 });
+  };
 
   const option = [
     { label: 'Ascending', value: 1 },
@@ -125,10 +151,10 @@ const User = () => {
           </tbody>
         </table>
         <div className="flex items-center justify-between w-full">
-          <button>
+          <button onClick={handlePrevious}>
             <FontAwesomeIcon icon={faLeftLong} /> Previous
           </button>
-          <button>
+          <button onClick={handleNext}>
             Next <FontAwesomeIcon icon={faRightLong} />
           </button>
         </div>
