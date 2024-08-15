@@ -12,6 +12,7 @@ const User = () => {
     currentPage: 1,
     nextPage: 0,
     previousPage: 0,
+    totalPages: 0,
   });
 
   const getUsers = () => {
@@ -24,6 +25,7 @@ const User = () => {
           currentPage: res.data.page,
           nextPage: res.data.page + 1,
           previousPage: res.data.page - 1,
+          totalPages: res.data.total_pages,
         });
       })
       .catch((err) => {
@@ -161,10 +163,18 @@ const User = () => {
           </tbody>
         </table>
         <div className="flex items-center justify-between w-full">
-          <button onClick={handlePrevious}>
+          <button
+            disabled={pagination.currentPage === 1}
+            className="text-blue-600 hover:text-blue-800"
+            onClick={handlePrevious}
+          >
             <FontAwesomeIcon icon={faLeftLong} /> Previous
           </button>
-          <button onClick={handleNext}>
+          <button
+            className="text-blue-600 hover:text-blue-800"
+            disabled={pagination.currentPage === pagination.totalPages}
+            onClick={handleNext}
+          >
             Next <FontAwesomeIcon icon={faRightLong} />
           </button>
         </div>
