@@ -3,8 +3,7 @@ import { useState, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import InputText from '../components/Fragments/InputText';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUpRightFromSquare, faLeftLong, faMagnifyingGlass, faRightLong } from '@fortawesome/free-solid-svg-icons';
-
+import { faArrowUpRightFromSquare, faBorderAll, faLeftLong, faList, faMagnifyingGlass, faRightLong } from '@fortawesome/free-solid-svg-icons';
 const User = () => {
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState('');
@@ -66,50 +65,59 @@ const User = () => {
   return (
     <div className="flex flex-col justify-center h-screen">
       <div className="flex flex-col gap-3 items-center justify-center w-full h-[43rem] px-3">
-        <div className="flex items-center justify-between w-full">
-          <h1 className="text-3xl">User List</h1>
-          <div className="flex items-center w-[30rem] justify-between ">
-            <div className="flex items-center gap-1">
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
-              <InputText
-                label="Search"
-                textType="text"
-                textPlaceholder="Search"
-                textSize="text-lg"
-                style="border-2 border-black w-[20rem] p-1 rounded"
-                event={(e) => setSearch(e.target.value)}
-              />
+        <div className="flex items-center justify-between w-full p-3 bg-[#2F80ED] bg-opacity-[5%] rounded-full">
+          <div className="flex items-center gap-1 px-3">
+            <InputText
+              label="Search"
+              textType="text"
+              textPlaceholder="Search"
+              textSize="text-lg"
+              style="border-2 border-black w-[20rem] p-1 rounded-full"
+              event={(e) => setSearch(e.target.value)}
+            />
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </div>
+          <div className="flex items-center w-[23rem] justify-between px-3">
+            <div className="flex">
+              <button className="p-[0.32rem] ring-2 ring-gray-300 rounded-l-full active:bg-[#2F80ED] active:bg-opacity-[20%]">
+                <FontAwesomeIcon icon={faList} />
+              </button>
+              <button className="p-[0.32rem]  ring-2 ring-gray-300 rounded-r-full active:bg-[#2F80ED] active:bg-opacity-[20%]">
+                <FontAwesomeIcon icon={faBorderAll} />
+              </button>
             </div>
-            <label
-              htmlFor="sort"
-              className="text-[0.9rem]"
-            >
-              Sorted by:
-            </label>
-            <select
-              name="sort"
-              id="sort"
-              className="border-2 border-black w-[10rem] p-1 rounded"
-              onChange={handleSort}
-            >
-              {option.map((opt) => (
-                <option
-                  key={opt.value}
-                  value={opt.value}
-                >
-                  {opt.label}
-                </option>
-              ))}
-            </select>
+            <span className="flex items-center gap-3">
+              <label
+                htmlFor="sort"
+                className="text-[0.9rem]"
+              >
+                Sorted by:
+              </label>
+              <select
+                name="sort"
+                id="sort"
+                className="border-2 border-black w-[10rem] p-1 rounded-full"
+                onChange={handleSort}
+              >
+                {option.map((opt) => (
+                  <option
+                    key={opt.value}
+                    value={opt.value}
+                  >
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+            </span>
           </div>
         </div>
         <table className="w-full h-[3rem] text-center  border-collapse border-slate-500 ">
           <thead>
-            <tr className="border-black border-y-2">
-              <th className="border-y-2 bg-slate-600">Pic</th>
-              <th className="border-y-2 bg-slate-600">Name</th>
-              <th className="border-y-2 bg-slate-600">Email</th>
-              <th className="border-y-2 bg-slate-600">Action</th>
+            <tr className="border-red-700 border-3">
+              <th className="bg-[#2F80ED] bg-opacity-[20%] py-3 rounded-l-lg">Pic</th>
+              <th className="bg-[#2F80ED] bg-opacity-[20%] py-3">Name</th>
+              <th className="bg-[#2F80ED] bg-opacity-[20%] py-3">Email</th>
+              <th className="bg-[#2F80ED] bg-opacity-[20%] py-3 rounded-r-lg">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -127,7 +135,7 @@ const User = () => {
               })
               .map((user) => (
                 <tr key={user.id}>
-                  <td className="border-y-2">
+                  <td className="border-b-2 py-2">
                     <div className="flex items-center justify-center">
                       <img
                         className="lg:w-20 lg:h-20 md:w-16 md:h-16 sm:w-12 sm:h-12 rounded-xl"
@@ -136,7 +144,9 @@ const User = () => {
                       />
                     </div>
                   </td>
-                  <td className="border-y-2">{user.first_name}</td>
+                  <td className="border-y-2">
+                    {user.first_name} {user.last_name}
+                  </td>
                   <td className="border-y-2">{user.email}</td>
                   <td className="border-y-2">
                     <Link
