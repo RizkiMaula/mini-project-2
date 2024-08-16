@@ -48,7 +48,7 @@ const Login = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center h-screen gap-10 border-4 border-black">
+    <div className="flex items-center justify-center h-screen gap-10 border-4 border-black bg-gradient-to-br from-[#77E4C8] to-[#478CCF]">
       <Auth
         text="Login"
         error={failed ? failed : ''}
@@ -67,13 +67,6 @@ const Login = () => {
         eventPass={handlePassword}
         eventButton={handleLogin}
       />
-      <div>
-        <img
-          src={login}
-          alt="login"
-          className="w-[32rem] h-[37.563rem] object-cover"
-        />
-      </div>
     </div>
   );
 };

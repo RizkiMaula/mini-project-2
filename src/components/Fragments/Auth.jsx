@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle, faApple } from '@fortawesome/free-brands-svg-icons';
 import InputPass from '../Elements/InputPass';
+import ButtonAuthAlternate from '../Elements/ButtonAuthAlternate';
 
 const Auth = (props) => {
   const {
@@ -24,28 +25,28 @@ const Auth = (props) => {
     eventButton,
   } = props;
   return (
-    <div className="flex flex-col w-[32rem] h-[37.563rem] gap-[2.188rem]">
+    <div className="flex flex-col lg:w-[35.75rem] lg:h-[36.75rem] md:w-[33.75rem] md:h-[34.75rem] sm:w-[31.75rem] sm:h-[32.75rem] bg-white rounded-xl text-[#212121]">
       {/* Title */}
       <div className="flex flex-col w-full h-[6.25rem] gap-[1rem]">
-        <h1 className="text-[2.5rem] font-bold">{text}</h1>
-        <p className="text-[1rem]">{error}</p> {/* kalo ada pesan error, tampilkan pesan error */}
+        <h1 className="text-[2.5rem] font-bold text-center">{text}</h1>
+        <p className="text-[1rem] text-center">{error}</p> {/* kalo ada pesan error, tampilkan pesan error */}
       </div>
 
       {/* Input */}
-      <div className="flex flex-col gap-[2.5rem]">
-        <div className="flex flex-col gap-[1.5rem]">
+      <div className="flex flex-col gap-[2.5rem] ">
+        <div className="flex flex-col gap-[1.5rem] justify-center items-center">
           <Input
             event={eventInput}
             type={typeUser}
             placeholder={placeholder}
-            style="w-full border-2 border-[#79747E] h-[2.5rem]"
+            style="w-[85%] border-2 border-[#79747E] h-[2.5rem]"
           />
           <InputPass
             event={eventPass}
             placeholder={placeholder}
-            style="w-full border-2 border-[#79747E] h-[2.5rem] "
+            style="w-[85%] border-2 border-[#79747E] h-[2.5rem] "
           />
-          <span className="flex items-center gap-3 text-[0.875rem]">
+          <span className="flex items-center gap-3 text-[0.875rem] w-[85%]">
             <input
               type="checkbox"
               name="remember-me"
@@ -55,7 +56,7 @@ const Auth = (props) => {
           </span>
         </div>
         {/* Button and ask */}
-        <div className="flex flex-col gap-3 text-center">
+        <div className="flex flex-col items-center justify-center gap-3 text-center">
           <Button
             event={eventButton}
             bgColor={color}
@@ -71,19 +72,15 @@ const Auth = (props) => {
             </Link>
           </p>
         </div>
+
+        {/* Alternate Login */}
         <div className="flex flex-col gap-3 text-center">
           <p className="text-[#313131]">{alternate}</p>
         </div>
-        <div className="flex justify-center gap-3 text-[2.32rem] text-center">
-          <Link className="text-blue-500 hover:text-blue-800 w-[10rem] h-[3.5rem] border-2 border-[#515DEF] rounded[4px]">
-            <FontAwesomeIcon icon={faFacebook} />
-          </Link>
-          <Link className="text-blue-500 hover:text-blue-800 w-[10rem] h-[3.5rem] border-2 border-[#515DEF] rounded-[4px]">
-            <FontAwesomeIcon icon={faGoogle} />
-          </Link>
-          <Link className="text-blue-500 hover:text-blue-800 w-[10rem] h-[3.5rem] border-2 border-[#515DEF] rounded-[4px]">
-            <FontAwesomeIcon icon={faApple} />
-          </Link>
+        <div className="flex justify-center gap-3 lg:text-[2.32rem] md:text-[1.8rem] sm:text-[1.5rem] text-center">
+          <ButtonAuthAlternate icon={faFacebook} />
+          <ButtonAuthAlternate icon={faGoogle} />
+          <ButtonAuthAlternate icon={faApple} />
         </div>
       </div>
     </div>

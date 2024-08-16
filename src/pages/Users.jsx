@@ -79,7 +79,7 @@ const User = () => {
             />
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </div>
-          <div className="flex items-center lg:w-[23rem] md:w-[18rem] sm:w-[15rem] justify-between px-3 border-4 border-black">
+          <div className="flex items-center lg:w-[23rem] md:w-[18rem] sm:w-[15rem] justify-between px-3">
             <div className="flex items-center">
               <button className="p-[0.32rem] ring-2 ring-gray-300 rounded-l-full active:bg-[#2F80ED] active:bg-opacity-[20%]">
                 <FontAwesomeIcon icon={faList} />

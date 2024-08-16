@@ -50,14 +50,7 @@ const Register = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center h-screen gap-10 border-4 border-black">
-      <div>
-        <img
-          src={register}
-          alt="login"
-          className="w-[32rem] h-[37.563rem] object-cover"
-        />
-      </div>
+    <div className="flex items-center justify-center h-screen gap-10 border-4 border-black bg-gradient-to-br from-[#4e7cdf] to-[#0a3764]">
       <Auth
         text="Register"
         error={failed ? <p className="text-red-500">{failed}</p> : null}

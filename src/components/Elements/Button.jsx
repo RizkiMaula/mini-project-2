@@ -3,7 +3,7 @@ const Button = (props) => {
   return (
     <button
       onClick={event}
-      className={`${bgColor} rounded-[0.25rem] w-full p-1 text-white`}
+      className={`${bgColor} rounded-[0.25rem] p-1 text-white w-[85%]`}
     >
       {text}
     </button>

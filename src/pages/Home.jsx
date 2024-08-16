@@ -6,7 +6,7 @@ import RecentActivity from '../components/Fragments/RecentActivity';
 
 const Home = () => {
   return (
-    <div className="flex flex-col gap-4 p-4 text-justify justify-center w-full items-stretch">
+    <div className="flex flex-col items-stretch justify-center w-full gap-4 p-4 text-justify">
       <h1 className="text-3xl font-bold text-center underline">Dashboard</h1>
       <Dashboard />
       <RecentActivity />
