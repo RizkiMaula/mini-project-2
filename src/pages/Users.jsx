@@ -54,8 +54,8 @@ const User = () => {
   };
 
   const option = [
-    { label: 'Ascending', value: 1 },
-    { label: 'Descending', value: 2 },
+    { label: 'A-Z', value: 1 },
+    { label: 'Z-A', value: 2 },
   ];
 
   const handleSort = (e) => {
@@ -79,8 +79,8 @@ const User = () => {
             />
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </div>
-          <div className="flex items-center w-[23rem] justify-between px-3">
-            <div className="flex">
+          <div className="flex items-center lg:w-[23rem] md:w-[18rem] sm:w-[15rem] justify-between px-3 border-4 border-black">
+            <div className="flex items-center">
               <button className="p-[0.32rem] ring-2 ring-gray-300 rounded-l-full active:bg-[#2F80ED] active:bg-opacity-[20%]">
                 <FontAwesomeIcon icon={faList} />
               </button>
@@ -91,14 +91,14 @@ const User = () => {
             <span className="flex items-center gap-3">
               <label
                 htmlFor="sort"
-                className="text-[0.9rem]"
+                className="lg:text-[0.9rem] md:text-[0.8rem] sm:text-[0.7rem] text-[0.6rem]"
               >
                 Sorted by:
               </label>
               <select
                 name="sort"
                 id="sort"
-                className="border-2 border-black w-[10rem] p-1 rounded-full"
+                className="border-2 border-black lg:w-[7rem] md:w-[6rem] sm:w-[5rem] p-1 rounded-full"
                 onChange={handleSort}
               >
                 {option.map((opt) => (
@@ -127,7 +127,6 @@ const User = () => {
               .filter((user) => {
                 return search.toLowerCase() === '' ? user : user.first_name.toLowerCase().includes(search.toLowerCase()); // filter berdasarkan search, jika search kosong, tampilkan semua. jika user bernilai true, maka tampilkan nama yang diketik dan di dalamnya (includes) search
               })
-              // .sort((a, b) => (a.first_name > b.first_name ? 1 : -1)) // udah sort berdasarkan asc dari first_name tapi maunya lewat select option
               .sort((a, b) => {
                 if (sort === '1') {
                   return a.first_name > b.first_name ? 1 : -1;
@@ -137,7 +136,7 @@ const User = () => {
               })
               .map((user) => (
                 <tr key={user.id}>
-                  <td className="border-b-2 py-2">
+                  <td className="py-2 border-b-2">
                     <div className="flex items-center justify-center">
                       <img
                         className="lg:w-20 lg:h-20 md:w-16 md:h-16 sm:w-12 sm:h-12 rounded-xl"

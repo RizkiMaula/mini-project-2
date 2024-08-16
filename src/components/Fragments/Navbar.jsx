@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
+import logo from '../images/logo.png';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -10,27 +11,28 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded  flex justify-center border-4">
-      <Link
-        to={'/'}
-        className="flex items-center p-4"
-      >
-        Home
-      </Link>
-      <Link
-        to={'/about'}
-        className="flex items-center p-4"
-      >
-        About
-      </Link>
-      <Link
-        to={'/users'}
-        className="flex items-center p-4"
-      >
-        Users
-      </Link>
+    <div className="flex justify-between items-center w-[90%] mx-auto">
+      <img
+        src={logo}
+        alt="logo"
+        className="w-12 h-12 rounded-full"
+      />
+      <nav className="bg-white px-2 sm:px-4 py-2.5 rounded  flex justify-center ">
+        <Link
+          to={'/'}
+          className="flex items-center p-4"
+        >
+          Home
+        </Link>
+        <Link
+          to={'/users'}
+          className="flex items-center p-4"
+        >
+          Users
+        </Link>
+      </nav>
       {isLogedin !== null && <button onClick={handleLogout}>logout</button>}
-    </nav>
+    </div>
   );
 };
 

@@ -1,5 +1,4 @@
 import NotFound from '../pages/404';
-import About from '../pages/About';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
@@ -23,10 +22,6 @@ export const RouteList = [
       {
         index: true,
         element: <Home />,
-      },
-      {
-        path: 'about',
-        element: <About />,
       },
       {
         path: 'users',

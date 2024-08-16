@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 import Square from '../Elements/Square';
-import { faCircle, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faCircle, faUser, faX } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import UserAPI from '../../helpers/UserAPI';
 
 const Dashboard = () => {
-  const [users, setUsers] = useState([]);
+  const [total, setTotal] = useState(0);
 
   const getUsers = () => {
     axios
       .get('https://reqres.in/api/users')
       .then((res) => {
-        // console.log(res.data.data); //buat cek data dari api
-        setUsers(res.data.data);
+        // console.log(res.data.total); //buat cek data dari api
+        setTotal(res.data.total);
       })
       .catch((err) => {
         console.log(err.response);
@@ -24,25 +24,29 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="flex gap-3">
-      <Square
-        icon={faUser}
-        // txtColor="text-white"
-        text="User Registered"
-        num={users.length}
-        logoColor="text-black"
-      />
-      <Square
-        icon={faCircle}
-        text="Active User"
-        num={users.length - users.length / 2}
-      />
-      <Square
-        icon={faCircle}
-        text="Inactive User"
-        num={users.length - users.length / 2}
-        logoColor="text-red-600"
-      />
+    <div className="flex justify-center">
+      <div className="flex gap-3 w-[65%] items-center justify-between">
+        <Square
+          icon={faUser}
+          text="User Registered"
+          num={total}
+          bgColor="bg-[#EFE0FD]"
+          logoColor="text-black"
+        />
+        <Square
+          icon={faCheck}
+          text="Active User"
+          num={total - total / 2}
+          bgColor="bg-[#C1DEFE]"
+        />
+        <Square
+          icon={faX}
+          text="Inactive User"
+          bgColor="bg-[#FCF4D7]"
+          num={total - total / 2}
+          logoColor="text-red-600"
+        />
+      </div>
     </div>
   );
 };
