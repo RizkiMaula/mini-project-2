@@ -1,67 +1,16 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import InputText from '../components/Fragments/InputText';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare, faBorderAll, faLeftLong, faList, faMagnifyingGlass, faRightLong } from '@fortawesome/free-solid-svg-icons';
 import Table from '../components/Elements/Table';
+import UserAPI from '../customHooks/UserAPI';
 const User = () => {
-  const [users, setUsers] = useState([]);
-  const [search, setSearch] = useState('');
-  const [sort, setSort] = useState('');
-  const [pagination, setPagination] = useState({
-    currentPage: 1,
-    nextPage: 0,
-    previousPage: 0,
-    totalPages: 0,
-  });
-
-  const getUsers = () => {
-    axios
-      .get(`https://reqres.in/api/users?per_page=5&page=${pagination.currentPage}`)
-      .then((res) => {
-        // console.log(res.data.page - 1); //buat cek data dari api
-        setUsers(res.data.data);
-        setPagination({
-          currentPage: res.data.page,
-          nextPage: res.data.page + 1,
-          previousPage: res.data.page - 1,
-          totalPages: res.data.total_pages,
-        });
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
-  };
-
-  useEffect(() => {
-    getUsers();
-  }, []);
-
-  const handleNext = () => {
-    console.log(pagination.currentPage);
-
-    setPagination({ ...pagination, currentPage: pagination.currentPage + 1 });
-  };
-
-  useEffect(() => {
-    getUsers();
-  }, [pagination.currentPage]);
-
-  const handlePrevious = () => {
-    console.log(pagination.currentPage);
-
-    setPagination({ ...pagination, currentPage: pagination.currentPage - 1 });
-  };
+  const { users, search, sort, pagination, handleNext, handlePrevious, handleSort, setSearch } = UserAPI();
 
   const option = [
     { label: 'A-Z', value: 1 },
     { label: 'Z-A', value: 2 },
   ];
-
-  const handleSort = (e) => {
-    setSort(e.target.value);
-  };
 
   // console.log('users', users); //buat cek users
 

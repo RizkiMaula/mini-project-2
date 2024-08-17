@@ -1,27 +1,10 @@
 import { useEffect, useState } from 'react';
 import Square from '../Elements/Square';
-import { faCheck, faCircle, faUser, faX } from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
+import { faCheck, faUser, faX } from '@fortawesome/free-solid-svg-icons';
 import UserAPI from '../../customHooks/UserAPI';
 
 const Dashboard = () => {
-  const [total, setTotal] = useState(0);
-
-  const getUsers = () => {
-    axios
-      .get('https://reqres.in/api/users')
-      .then((res) => {
-        // console.log(res.data.total); //buat cek data dari api
-        setTotal(res.data.total);
-      })
-      .catch((err) => {
-        console.log(err.response);
-      });
-  };
-
-  useEffect(() => {
-    getUsers();
-  }, []);
+  const { total } = UserAPI();
 
   return (
     <div className="flex justify-center">
