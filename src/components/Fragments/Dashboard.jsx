@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Square from '../Elements/Square';
 import { faCheck, faCircle, faUser, faX } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
-import UserAPI from '../../helpers/UserAPI';
+import UserAPI from '../../customHooks/UserAPI';
 
 const Dashboard = () => {
   const [total, setTotal] = useState(0);
