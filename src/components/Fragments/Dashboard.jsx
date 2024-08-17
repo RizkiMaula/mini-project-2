@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import Square from '../Elements/Square';
 import { faCheck, faUser, faX } from '@fortawesome/free-solid-svg-icons';
-import UserAPI from '../../customHooks/UserAPI';
+import useUserAPI from '../../hooks/useUserAPI';
 
 const Dashboard = () => {
-  const { total } = UserAPI();
+  const { total } = useUserAPI();
 
   return (
     <div className="flex justify-center">

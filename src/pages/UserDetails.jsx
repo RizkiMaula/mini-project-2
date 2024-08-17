@@ -2,10 +2,10 @@ import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram, faLinkedinIn, faWhatsapp, faXTwitter } from '@fortawesome/free-brands-svg-icons';
-import getUSerDetails from '../customHooks/getUserDetails';
+import useUserDetails from '../hooks/useUserDetails';
 
 const UserDetails = () => {
-  const { user } = getUSerDetails();
+  const { user } = useUserDetails();
 
   // console.log('user', user); //buat cek users
 

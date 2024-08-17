@@ -3,9 +3,9 @@ import InputText from '../components/Fragments/InputText';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare, faBorderAll, faLeftLong, faList, faMagnifyingGlass, faRightLong } from '@fortawesome/free-solid-svg-icons';
 import Table from '../components/Elements/Table';
-import UserAPI from '../customHooks/UserAPI';
+import useUserAPI from '../hooks/useUserAPI';
 const User = () => {
-  const { users, search, sort, pagination, handleNext, handlePrevious, handleSort, setSearch } = UserAPI();
+  const { users, search, sort, pagination, handleNext, handlePrevious, handleSort, setSearch } = useUserAPI();
 
   const option = [
     { label: 'A-Z', value: 1 },

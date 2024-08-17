@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-
-const getUSerDetails = () => {
+// depannya harus use
+const useUserDetails = () => {
   // 1. deklarasi state
   const [user, setUser] = useState({});
   // 2. dapetin semua user berdasarkan id dari api
@@ -27,4 +27,4 @@ const getUSerDetails = () => {
   return { user };
 };
 
-export default getUSerDetails;
+export default useUserDetails;

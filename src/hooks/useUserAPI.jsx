@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const UserAPI = () => {
+const useUserAPI = () => {
   const [users, setUsers] = useState([]);
   const [total, setTotal] = useState(0);
   const [search, setSearch] = useState('');
@@ -57,4 +57,4 @@ const UserAPI = () => {
   return { users, total, search, sort, pagination, handleNext, handlePrevious, handleSort, setSearch };
 };
 
-export default UserAPI;
+export default useUserAPI;

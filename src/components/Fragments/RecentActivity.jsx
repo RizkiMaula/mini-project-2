@@ -2,10 +2,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import Table from '../Elements/Table';
-import UserAPI from '../../customHooks/UserAPI';
+import useUserAPI from '../../hooks/useUserAPI';
 
 const RecentActivity = () => {
-  const { users } = UserAPI();
+  const { users } = useUserAPI();
 
   return (
     <div className="flex flex-col gap-4">
