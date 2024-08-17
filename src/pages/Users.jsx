@@ -98,7 +98,7 @@ const User = () => {
               <select
                 name="sort"
                 id="sort"
-                className="border-2 border-black lg:w-[7rem] md:w-[6rem] sm:w-[5rem] p-1 rounded-full"
+                className="border-2 text-center border-black lg:w-[7rem] md:w-[6rem] sm:w-[5rem] p-1 rounded-full"
                 onChange={handleSort}
               >
                 {option.map((opt) => (
