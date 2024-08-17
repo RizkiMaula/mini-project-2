@@ -12,7 +12,7 @@ const RecentActivity = () => {
     axios
       .get('https://reqres.in/api/users?per_page=3&page=3')
       .then((res) => {
-        console.log(res.data.data); //buat cek data dari api
+        // console.log(res.data.data); //buat cek data dari api
         setUsers(res.data.data);
       })
       .catch((err) => {
