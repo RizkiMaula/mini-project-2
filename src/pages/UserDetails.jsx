@@ -1,7 +1,7 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { faFacebook, faInstagram, faLinkedinIn, faWhatsapp, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faInstagram, faLinkedinIn, faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import useUserDetails from '../hooks/useUserDetails';
 
 const UserDetails = () => {
@@ -10,7 +10,7 @@ const UserDetails = () => {
   // console.log('user', user); //buat cek users
 
   // 3. destructuring object yang dari api
-  const { id, first_name, last_name, email, avatar } = user;
+  const { first_name, last_name, email, avatar } = user;
 
   // 4. tampilin data user (render*) berdasarkan id
   return (

@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import Square from '../Elements/Square';
 import { faCheck, faUser, faX } from '@fortawesome/free-solid-svg-icons';
 import useUserAPI from '../../hooks/useUserAPI';
