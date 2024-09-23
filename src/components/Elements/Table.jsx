@@ -1,4 +1,5 @@
 const Table = (props) => {
+  // eslint-disable-next-line react/prop-types
   const { logic } = props;
   return (
     <table className="w-full h-[3rem] text-center  border-collapse border-slate-500 ">

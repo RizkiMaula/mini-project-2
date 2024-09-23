@@ -31,6 +31,7 @@ const Navbar = () => {
           Users
         </Link>
       </nav>
+      {isLogedin === null && <Link to={'/login'}>Login</Link>}
       {isLogedin !== null && <button onClick={handleLogout}>logout</button>}
     </div>
   );

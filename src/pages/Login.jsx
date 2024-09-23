@@ -31,8 +31,9 @@ const Login = () => {
       .post('https://reqres.in/api/login', payload) // dapetin semua user untuk login dari api
       .then((res) => {
         // console.log(res); // liat isi dari response untuk liat alamat token
-        localStorage.setItem('access_token', res.data.token); // simpan token ke local storage dan ambil akses token di alamat res.data.token
+        localStorage.setItem('accessToken', res.data.token); // simpan token ke local storage dan ambil akses token di alamat res.data.token
         navigate('/'); // arahkan ke halaman utama
+        console.log(res.data);
       })
       .catch((err) => {
         // console.log(err.response); // kalo gagal liat respons error dan liat alamat pemberitahuan errornya dari api
@@ -41,7 +42,7 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (localStorage.getItem('access_token') !== null) {
+    if (localStorage.getItem('accessToken') !== null) {
       navigate('/');
     }
   }, []);

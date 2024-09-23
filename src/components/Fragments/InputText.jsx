@@ -2,6 +2,7 @@ import Label from '../Elements/Label';
 import Input from '../Elements/Input';
 
 const InputText = (props) => {
+  // eslint-disable-next-line react/prop-types
   const { label = 'Login', textType, textPlaceholder, textSize, event, style } = props;
   return (
     <div className="flex items-center border-red-700 border-3">

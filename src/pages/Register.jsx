@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Auth from '../components/Fragments/Auth';
-import register from '../components/images/register.jpg';
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -29,7 +28,7 @@ const Register = () => {
 
     axios
       .post('https://reqres.in/api/register', payload)
-      .then((res) => {
+      .then(() => {
         setSuccess('Register Success, You will be redirected to login page in 3 seconds...');
         setTimeout(() => {
           navigate('/login');

@@ -3,7 +3,7 @@ import Navbar from '../components/Fragments/Navbar';
 import Footer from '../components/Fragments/Footer';
 
 const SharedLayout = () => {
-  const token = localStorage.getItem('access_token');
+  const token = localStorage.getItem('accessToken');
   if (!token) {
     return (
       <Navigate

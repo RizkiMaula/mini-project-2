@@ -6,6 +6,9 @@ const useUserDetails = () => {
   // 1. deklarasi state
   const [user, setUser] = useState({});
   // 2. dapetin semua user berdasarkan id dari api
+
+  const { userId } = useParams();
+
   const getUser = () => {
     axios
       .get(`https://reqres.in/api/users/${userId}`)
@@ -17,8 +20,6 @@ const useUserDetails = () => {
         console.log(err.response);
       });
   };
-
-  const { userId } = useParams();
 
   useEffect(() => {
     getUser();

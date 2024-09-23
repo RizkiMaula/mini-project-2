@@ -1,4 +1,5 @@
 const Button = (props) => {
+  // eslint-disable-next-line react/prop-types
   const { text = '....', bgColor = 'bg-red-500', event } = props;
   return (
     <button

@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 const Square = (props) => {
+  // eslint-disable-next-line react/prop-types
   const { icon = faCheck, bgColor = 'bg-gray-500', txtColor = 'white', logoColor = 'text-green-600', text = '....', num = 99 } = props;
   return (
     <div

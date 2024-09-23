@@ -1,29 +1,13 @@
 import Button from '../Elements/Button';
 import Input from '../Elements/Input';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle, faApple } from '@fortawesome/free-brands-svg-icons';
 import InputPass from '../Elements/InputPass';
 import ButtonAuthAlternate from '../Elements/ButtonAuthAlternate';
 
 const Auth = (props) => {
-  const {
-    text = 'dari Auth',
-    ask = `haven't an account?`,
-    error = 'liat error disini',
-    event,
-    typeUser,
-    textCheck,
-    textDirect = 'dari direct',
-    placeholder = 'dari auth',
-    style = 'w-full border-2 border-red-500',
-    color,
-    direct,
-    alternate,
-    eventInput,
-    eventPass,
-    eventButton,
-  } = props;
+  // eslint-disable-next-line react/prop-types
+  const { text = 'dari Auth', ask = `haven't an account?`, error = 'liat error disini', typeUser, textCheck, textDirect = 'dari direct', placeholder = 'dari auth', color, direct, alternate, eventInput, eventPass, eventButton } = props;
   return (
     <div className="flex flex-col lg:w-[35.75rem] lg:h-[36.75rem] md:w-[33.75rem] md:h-[34.75rem] sm:w-[31.75rem] sm:h-[32.75rem] bg-white rounded-xl text-[#212121]">
       {/* Title */}
